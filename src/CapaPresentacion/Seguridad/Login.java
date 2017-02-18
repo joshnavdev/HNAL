@@ -33,9 +33,9 @@ public class Login extends javax.swing.JFrame {
         jPLogin = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jTUsuario = new javax.swing.JTextField();
-        jBIngresar = new javax.swing.JButton();
+        jBCancelar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jTUsuario1 = new javax.swing.JTextField();
+        jTClave = new javax.swing.JTextField();
         jBIngresar1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -62,16 +62,16 @@ public class Login extends javax.swing.JFrame {
         jTUsuario.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jPLogin.add(jTUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, 167, -1));
 
-        jBIngresar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jBIngresar.setText("Cancelar");
-        jPLogin.add(jBIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 170, 120, 30));
+        jBCancelar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jBCancelar.setText("Cancelar");
+        jPLogin.add(jBCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 170, 120, 30));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("Clave");
         jPLogin.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 80, 20));
 
-        jTUsuario1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jPLogin.add(jTUsuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 167, -1));
+        jTClave.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jPLogin.add(jTClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 167, -1));
 
         jBIngresar1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jBIngresar1.setText("Ingresar");
@@ -138,7 +138,7 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBIngresar;
+    private javax.swing.JButton jBCancelar;
     private javax.swing.JButton jBIngresar1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -146,7 +146,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPLogin;
     private javax.swing.JPanel jPLogo;
+    private javax.swing.JTextField jTClave;
     private javax.swing.JTextField jTUsuario;
-    private javax.swing.JTextField jTUsuario1;
     // End of variables declaration//GEN-END:variables
 }
