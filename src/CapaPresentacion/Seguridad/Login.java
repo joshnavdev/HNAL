@@ -28,57 +28,73 @@ public class Login extends javax.swing.JFrame {
     private void initComponents() {
 
         jPLogo = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jPLogin = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jTUsuario = new javax.swing.JTextField();
+        jBIngresar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jTUsuario1 = new javax.swing.JTextField();
+        jBIngresar1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
         jPLogo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPLogo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPLogoLayout = new javax.swing.GroupLayout(jPLogo);
-        jPLogo.setLayout(jPLogoLayout);
-        jPLogoLayout.setHorizontalGroup(
-            jPLogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 451, Short.MAX_VALUE)
-        );
-        jPLogoLayout.setVerticalGroup(
-            jPLogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel3.setText("Hospital Nacional Arzobispo Loayza");
+        jPLogo.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel4.setText("Atencion al Paciente");
+        jPLogo.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, -1, -1));
 
         jPLogin.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPLogin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPLoginLayout = new javax.swing.GroupLayout(jPLogin);
-        jPLogin.setLayout(jPLoginLayout);
-        jPLoginLayout.setHorizontalGroup(
-            jPLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPLoginLayout.setVerticalGroup(
-            jPLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 279, Short.MAX_VALUE)
-        );
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel1.setText("Usuario");
+        jPLogin.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 80, 20));
+
+        jTUsuario.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jPLogin.add(jTUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, 167, -1));
+
+        jBIngresar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jBIngresar.setText("Cancelar");
+        jPLogin.add(jBIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 170, 120, 30));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel2.setText("Clave");
+        jPLogin.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 80, 20));
+
+        jTUsuario1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jPLogin.add(jTUsuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 167, -1));
+
+        jBIngresar1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jBIngresar1.setText("Ingresar");
+        jPLogin.add(jBIngresar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 120, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addComponent(jPLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(48, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPLogo, javax.swing.GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addComponent(jPLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addComponent(jPLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -122,7 +138,15 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBIngresar;
+    private javax.swing.JButton jBIngresar1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPLogin;
     private javax.swing.JPanel jPLogo;
+    private javax.swing.JTextField jTUsuario;
+    private javax.swing.JTextField jTUsuario1;
     // End of variables declaration//GEN-END:variables
 }
