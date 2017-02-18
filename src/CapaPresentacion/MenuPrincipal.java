@@ -33,12 +33,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        jBCaja = new javax.swing.JButton();
+        jBTriaje = new javax.swing.JButton();
+        jBVentanilla = new javax.swing.JButton();
+        jBConsultorio = new javax.swing.JButton();
+        jBAdministrar = new javax.swing.JButton();
+        jBSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -58,29 +58,29 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel2.setLayout(new java.awt.GridLayout(2, 0));
 
-        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jButton1.setText("Caja de Atencion");
-        jPanel2.add(jButton1);
+        jBCaja.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jBCaja.setText("Caja de Atencion");
+        jPanel2.add(jBCaja);
 
-        jButton5.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jButton5.setText("Triaje");
-        jPanel2.add(jButton5);
+        jBTriaje.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jBTriaje.setText("Triaje");
+        jPanel2.add(jBTriaje);
 
-        jButton4.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jButton4.setText("Ventanilla de Admision");
-        jPanel2.add(jButton4);
+        jBVentanilla.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jBVentanilla.setText("Ventanilla de Admision");
+        jPanel2.add(jBVentanilla);
 
-        jButton3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jButton3.setText("Consultorio");
-        jPanel2.add(jButton3);
+        jBConsultorio.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jBConsultorio.setText("Consultorio");
+        jPanel2.add(jBConsultorio);
 
-        jButton2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jButton2.setText("Administrar Usuarios");
-        jPanel2.add(jButton2);
+        jBAdministrar.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jBAdministrar.setText("Administrar Usuarios");
+        jPanel2.add(jBAdministrar);
 
-        jButton6.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jButton6.setText("Salir");
-        jPanel2.add(jButton6);
+        jBSalir.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jBSalir.setText("Salir");
+        jPanel2.add(jBSalir);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -143,12 +143,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jBAdministrar;
+    private javax.swing.JButton jBCaja;
+    private javax.swing.JButton jBConsultorio;
+    private javax.swing.JButton jBSalir;
+    private javax.swing.JButton jBTriaje;
+    private javax.swing.JButton jBVentanilla;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
