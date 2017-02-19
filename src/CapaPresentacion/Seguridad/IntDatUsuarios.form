@@ -41,12 +41,12 @@
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jTextField1" alignment="0" min="-2" pref="93" max="-2" attributes="0"/>
-                  <Component id="jTextField2" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jTextField3" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jTextField4" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jPasswordField1" max="32767" attributes="0"/>
-                  <Component id="jComboBox1" min="-2" pref="170" max="-2" attributes="0"/>
+                  <Component id="jTCodigo" alignment="0" min="-2" pref="93" max="-2" attributes="0"/>
+                  <Component id="jTNombre" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jTApellido" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jTUsuario" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jTClave" max="32767" attributes="0"/>
+                  <Component id="jCTipo" min="-2" pref="170" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="54" max="32767" attributes="0"/>
           </Group>
@@ -58,32 +58,32 @@
               <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel1" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                  <Component id="jTextField1" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                  <Component id="jTCodigo" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel2" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                  <Component id="jTextField2" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                  <Component id="jTNombre" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel3" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                  <Component id="jTextField3" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                  <Component id="jTApellido" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel4" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                  <Component id="jTextField4" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                  <Component id="jTUsuario" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel5" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                  <Component id="jPasswordField1" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                  <Component id="jTClave" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel6" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                  <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jCTipo" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
               <Component id="jPanel1" pref="68" max="32767" attributes="0"/>
@@ -101,7 +101,7 @@
         <Property name="text" type="java.lang.String" value="Codigo"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField1">
+    <Component class="javax.swing.JTextField" name="jTCodigo">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="12" style="0"/>
@@ -117,7 +117,7 @@
         <Property name="text" type="java.lang.String" value="Nombre"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField2">
+    <Component class="javax.swing.JTextField" name="jTNombre">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="12" style="0"/>
@@ -132,7 +132,7 @@
         <Property name="text" type="java.lang.String" value="Apellido"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField3">
+    <Component class="javax.swing.JTextField" name="jTApellido">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="12" style="0"/>
@@ -147,7 +147,7 @@
         <Property name="text" type="java.lang.String" value="Usuario"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField4">
+    <Component class="javax.swing.JTextField" name="jTUsuario">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="12" style="0"/>
@@ -162,7 +162,7 @@
         <Property name="text" type="java.lang.String" value="Contrase&#xf1;a"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JPasswordField" name="jPasswordField1">
+    <Component class="javax.swing.JPasswordField" name="jTClave">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="12" style="0"/>
@@ -174,10 +174,10 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="12" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Usuario"/>
+        <Property name="text" type="java.lang.String" value="Tipo"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="jComboBox1">
+    <Component class="javax.swing.JComboBox" name="jCTipo">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="12" style="1"/>
@@ -202,12 +202,12 @@
         <Property name="rows" type="int" value="1"/>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="jBGuardar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Guardar"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton2">
+        <Component class="javax.swing.JButton" name="jBCancelar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cancelar"/>
           </Properties>

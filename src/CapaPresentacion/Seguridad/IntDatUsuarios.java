@@ -30,20 +30,20 @@ public class IntDatUsuarios extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jTCodigo = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        jTNombre = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        jTApellido = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        jTUsuario = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        jTClave = new javax.swing.JPasswordField();
         jLabel6 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jCTipo = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jBGuardar = new javax.swing.JButton();
+        jBCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Datos de Usuario");
@@ -51,42 +51,42 @@ public class IntDatUsuarios extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel1.setText("Codigo");
 
-        jTextField1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jTextField1.setEnabled(false);
+        jTCodigo.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jTCodigo.setEnabled(false);
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel2.setText("Nombre");
 
-        jTextField2.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jTNombre.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel3.setText("Apellido");
 
-        jTextField3.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jTApellido.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel4.setText("Usuario");
 
-        jTextField4.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jTUsuario.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel5.setText("Contraseña");
 
-        jPasswordField1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jTClave.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jLabel6.setText("Usuario");
+        jLabel6.setText("Tipo");
 
-        jComboBox1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Personal de Caja", "Personal de Ventanilla", "Medico", "Administrador" }));
+        jCTipo.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jCTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Personal de Caja", "Personal de Ventanilla", "Medico", "Administrador" }));
 
-        jPanel1.setLayout(new java.awt.GridLayout());
+        jPanel1.setLayout(new java.awt.GridLayout(1, 0));
 
-        jButton1.setText("Guardar");
-        jPanel1.add(jButton1);
+        jBGuardar.setText("Guardar");
+        jPanel1.add(jBGuardar);
 
-        jButton2.setText("Cancelar");
-        jPanel1.add(jButton2);
+        jBCancelar.setText("Cancelar");
+        jPanel1.add(jBCancelar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -107,12 +107,12 @@ public class IntDatUsuarios extends javax.swing.JFrame {
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2)
-                    .addComponent(jTextField3)
-                    .addComponent(jTextField4)
-                    .addComponent(jPasswordField1)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTNombre)
+                    .addComponent(jTApellido)
+                    .addComponent(jTUsuario)
+                    .addComponent(jTClave)
+                    .addComponent(jCTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(54, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -121,27 +121,27 @@ public class IntDatUsuarios extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTClave, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jCTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
                 .addContainerGap())
@@ -186,9 +186,9 @@ public class IntDatUsuarios extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton jBCancelar;
+    private javax.swing.JButton jBGuardar;
+    private javax.swing.JComboBox<String> jCTipo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -196,10 +196,10 @@ public class IntDatUsuarios extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTApellido;
+    private javax.swing.JPasswordField jTClave;
+    private javax.swing.JTextField jTCodigo;
+    private javax.swing.JTextField jTNombre;
+    private javax.swing.JTextField jTUsuario;
     // End of variables declaration//GEN-END:variables
 }
