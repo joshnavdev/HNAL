@@ -69,13 +69,13 @@ public class Usuario_LN {
         return 0;
     }
     
-    public boolean validarUsuario(String usuario, String clave) {
+    public String validarUsuario(String usuario, String clave) {
         try {
             return new Usuario_AD().validarUsuario(usuario, clave);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        return false;
+        return null;
     }
     
 }

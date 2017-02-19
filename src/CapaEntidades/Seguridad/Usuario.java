@@ -14,6 +14,19 @@ public class Usuario {
     private String clave;
     private String tipo;
 
+    public Usuario() {  }
+
+    public Usuario(String codigo, String nombre, String apellido, String usuario, String clave, String tipo) {
+        this.codigo = codigo;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.usuario = usuario;
+        this.clave = clave;
+        this.tipo = tipo;
+    }
+
+    
+    
     public String getCodigo() { return codigo; }
 
     public void setCodigo(String codigo) { this.codigo = codigo; }
