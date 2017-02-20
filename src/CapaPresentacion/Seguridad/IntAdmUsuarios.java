@@ -31,6 +31,7 @@ public class IntAdmUsuarios extends javax.swing.JFrame {
     private void iniciarVentana() {
         this.cambiarBotones(false);
         this.iniciarTabla();
+        flag = 0;
     }
     private void cambiarBotones(boolean b) {
         this.jBModificar.setEnabled(b);
@@ -63,6 +64,7 @@ public class IntAdmUsuarios extends javax.swing.JFrame {
             modelo.addRow(temp);
         }
         this.jTable1.setModel(modelo);
+        flag = 0;
     }
 
     @SuppressWarnings("unchecked")
@@ -189,6 +191,7 @@ public class IntAdmUsuarios extends javax.swing.JFrame {
     private void jBAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAgregarActionPerformed
         IntDatUsuarios dialog = new IntDatUsuarios(new javax.swing.JFrame(), true);
         dialog.setVisible(true);
+        this.iniciarVentana();
     }//GEN-LAST:event_jBAgregarActionPerformed
 
     private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
@@ -201,10 +204,9 @@ public class IntAdmUsuarios extends javax.swing.JFrame {
             respuesta = JOptionPane.showInputDialog(null, "Ingrese Codigo, nombre o Tipo de usuario para realizar la busqueda:");
         }while("".equals(respuesta));
         ArrayList<Usuario> usuarios =  new Usuario_LN().buscarUsuarios(respuesta);
-        if(usuarios != null) {
+        if(!usuarios.isEmpty()) {
             this.llenarTabla(usuarios);
             this.cambiarBotones(false);
-            flag = 0;
         } else {
             JOptionPane.showMessageDialog(null, "Datos no encontrados");
         }
@@ -219,11 +221,12 @@ public class IntAdmUsuarios extends javax.swing.JFrame {
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jBModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBModificarActionPerformed
-        String codigo = this.jTable1.getModel().getValueAt(this.jTable1.getSelectedRow(), 0).toString();
+        String codigo = this.jTable1.getModel().getValueAt(this.jTable1.getSelectedRow(), 3).toString();
         ArrayList<Usuario> usuarios = new Usuario_LN().buscarUsuarios(codigo);
         Usuario usuario = usuarios.get(0);
         IntDatUsuarios dialog = new IntDatUsuarios(new javax.swing.JFrame(), true, usuario);
         dialog.setVisible(true);    
+        this.iniciarVentana();
     }//GEN-LAST:event_jBModificarActionPerformed
 
     private void jBEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarActionPerformed
@@ -231,6 +234,8 @@ public class IntAdmUsuarios extends javax.swing.JFrame {
         int res = JOptionPane.showConfirmDialog(null, "Seguro que quiere eliminar al usuario con codigo " + codigo);
         if(res == 0) {
             new Usuario_LN().eliminarUsuario(codigo);
+            JOptionPane.showMessageDialog(null, "Usuario " + codigo + " eliminado");
+            this.iniciarVentana();
         }
     }//GEN-LAST:event_jBEliminarActionPerformed
 

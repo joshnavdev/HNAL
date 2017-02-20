@@ -15,6 +15,16 @@ public class Login extends javax.swing.JFrame {
         initComponents();
     }
 
+    //METODOS PROPIOS
+    private boolean validarEspacios(){
+        boolean valido = true;
+        if(     "".equals(this.jTUsuario.getText()) ||
+                "".equals(this.jTClave.getText())
+                )
+            valido = false;
+        return valido;
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -112,16 +122,19 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBIngresar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBIngresar1ActionPerformed
-        
-        String usuario = this.jTUsuario.getText();
-        String clave = this.jTClave.getText();
-        String tipo = new Usuario_LN().validarUsuario(usuario, clave);
-        System.out.println(tipo);
-        if(!"".equals(tipo)) {
-            this.setVisible(false);
-            new MenuPrincipal(tipo).setVisible(true);
+        if(this.validarEspacios()) {
+            String usuario = this.jTUsuario.getText();
+            String clave = this.jTClave.getText();
+            String tipo = new Usuario_LN().validarUsuario(usuario, clave);
+            System.out.println(tipo);
+            if(tipo != null) {
+                this.dispose();
+                new MenuPrincipal(tipo).setVisible(true);
+            } else {
+                JOptionPane.showMessageDialog(null, "Usuario o Clave incorrecta");
+            }
         } else {
-            JOptionPane.showMessageDialog(null, "Usuario o Clave incorrecta");
+            JOptionPane.showMessageDialog(null, "Rellene todo los campos");
         }
     }//GEN-LAST:event_jBIngresar1ActionPerformed
 
