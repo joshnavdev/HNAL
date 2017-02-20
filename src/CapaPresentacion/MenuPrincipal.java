@@ -1,6 +1,7 @@
 
 package CapaPresentacion;
 
+import CapaPresentacion.GesTicAtencion.IntCajAtencion;
 import CapaPresentacion.Seguridad.IntAdmUsuarios;
 
 /**
@@ -12,13 +13,18 @@ public class MenuPrincipal extends javax.swing.JFrame {
     /**
      * Creates new form Menu
      * @param tipo
+     * @param us
      */
-    public MenuPrincipal(String tipo) {
+    public MenuPrincipal(String tipo, String us) {
         initComponents();
         this.setResizable(false);
         this.setLocationRelativeTo(null);
         this.iniciarVentana(tipo);
+        this.us = us; 
     }
+    //Variables Propias
+    
+    private final String us;
     
     //Metodos Propios
     private void iniciarVentana(String tipo){
@@ -80,6 +86,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jBCaja.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jBCaja.setText("Caja de Atencion");
+        jBCaja.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBCajaActionPerformed(evt);
+            }
+        });
         jPanel2.add(jBCaja);
 
         jBTriaje.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
@@ -145,6 +156,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         new IntAdmUsuarios().setVisible(true);
     }//GEN-LAST:event_jBAdministrarActionPerformed
 
+    private void jBCajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCajaActionPerformed
+        this.dispose();
+        new IntCajAtencion(this.us).setVisible(true);
+    }//GEN-LAST:event_jBCajaActionPerformed
+
 
     public static void main(String args[]) {
         try {
@@ -165,7 +181,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         }
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MenuPrincipal("Administrador").setVisible(true);
+                new MenuPrincipal("Administrador","nicnav").setVisible(true);
             }
         });
     }

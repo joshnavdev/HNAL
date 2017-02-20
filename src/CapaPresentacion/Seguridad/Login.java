@@ -129,7 +129,7 @@ public class Login extends javax.swing.JFrame {
             System.out.println(tipo);
             if(tipo != null) {
                 this.dispose();
-                new MenuPrincipal(tipo).setVisible(true);
+                new MenuPrincipal(tipo,usuario).setVisible(true);
             } else {
                 JOptionPane.showMessageDialog(null, "Usuario o Clave incorrecta");
             }

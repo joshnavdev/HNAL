@@ -110,6 +110,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Caja de Atencion"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBCajaActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jBTriaje">
           <Properties>
