@@ -19,6 +19,12 @@ public class TicketAtencion {
         this.fecGenerada = fecGenerada;
     }
 
+    public TicketAtencion(String codigo) {
+        this.codigo = codigo;
+        this.fecGenerada = null;
+    }
+    
+
     public String getCodigo() { return codigo; }
 
     public void setCodigo(String codigo) { this.codigo = codigo; }

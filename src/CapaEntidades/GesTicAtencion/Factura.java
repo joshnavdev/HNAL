@@ -27,6 +27,18 @@ public class Factura {
         this.monto = monto;
     }
 
+    public Factura(String codUsuario, String codTicket, String nomCliente, String dniCliente, String monto) {
+        this.codFactura = null;
+        this.codUsuario = codUsuario;
+        this.codTicket = codTicket;
+        this.fechGenerada = null;
+        this.nomCliente = nomCliente;
+        this.dniCliente = dniCliente;
+        this.monto = monto;
+    }
+    
+    
+
     public String getCodFactura() {
         return codFactura;
     }

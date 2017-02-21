@@ -42,7 +42,7 @@ public class TicketAtencion_AD {
         int resp = 0;
         
         try {
-            String sql = "EXC guardarTicket ?";
+            String sql = "EXEC guardarTicket ?";
             ps = conexion.prepareStatement(sql);
             ps.setString(1, ticket.getCodigo());
             resp = ps.executeUpdate();

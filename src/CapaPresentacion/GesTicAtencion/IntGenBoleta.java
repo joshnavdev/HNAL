@@ -2,9 +2,13 @@
 package CapaPresentacion.GesTicAtencion;
 
 import CapaEntidades.Date;
+import CapaEntidades.GesTicAtencion.Factura;
 import CapaEntidades.GesTicAtencion.TicketAtencion;
 import CapaEntidades.Seguridad.Usuario;
+import CapaNegocio.Date_LN;
+import CapaNegocio.GesTicAtencion.Factura_LN;
 import CapaNegocio.Seguridad.Usuario_LN;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -29,17 +33,27 @@ public class IntGenBoleta extends javax.swing.JDialog {
         iniciarVentana(us, ticket, cliente, dni);
     }
     
+    //Variables propias
+    private int flag;
+    
     //Metodos Propios
     private void iniciarVentana(String us, TicketAtencion ticket, String cliente, String dni) {
         Usuario usuario = new Usuario_LN().buscarUsuarios(us).get(0);
         String nombre = usuario.getNombre().toUpperCase() + " " + usuario.getApellido().toUpperCase();
         this.jLCodUsuario.setText(usuario.getCodigo());
         this.jLNomUsuario.setText(nombre);
-        this.jLFecha.setText(ticket.getFecGenerada().toString());
+        String fechaHora = new Date_LN().obtenerFechaHora();
+        this.jLFecha.setText(fechaHora);
         this.jLCodTicket.setText(ticket.getCodigo());
         this.jLCliente.setText(cliente);
         this.jLDNI.setText(dni);
     }
+
+    public int getFlag() {
+        return flag;
+    }
+    
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -60,7 +74,7 @@ public class IntGenBoleta extends javax.swing.JDialog {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
+        jLMonto = new javax.swing.JLabel();
         jPDatCliente = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -135,9 +149,9 @@ public class IntGenBoleta extends javax.swing.JDialog {
         jLabel12.setText("TOTAL S/");
         jPProducto.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, -1, -1));
 
-        jLabel13.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel13.setText("20.00");
-        jPProducto.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 50, -1, -1));
+        jLMonto.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLMonto.setText("20.00");
+        jPProducto.add(jLMonto, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 50, -1, -1));
 
         jPDatCliente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPDatCliente.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -174,6 +188,11 @@ public class IntGenBoleta extends javax.swing.JDialog {
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 21)); // NOI18N
         jButton1.setText("Imprimir");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton1);
 
         jButton2.setFont(new java.awt.Font("Times New Roman", 1, 21)); // NOI18N
@@ -225,6 +244,25 @@ public class IntGenBoleta extends javax.swing.JDialog {
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        /*
+        
+            CODIGO PARA IMPRIMIR DE VERDAD...
+        
+        */
+        Factura factura = new Factura(
+                this.jLCodUsuario.getText(),
+                this.jLCodTicket.getText(),
+                this.jLCliente.getText(),
+                this.jLDNI.getText(),
+                this.jLMonto.getText()
+        );
+        new Factura_LN().guardarFactyra(factura);
+        JOptionPane.showMessageDialog(null, "Factura impresion correctamente");
+        this.flag = 1;
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     public static void main(String args[]) {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -268,12 +306,12 @@ public class IntGenBoleta extends javax.swing.JDialog {
     private javax.swing.JLabel jLCodUsuario;
     private javax.swing.JLabel jLDNI;
     private javax.swing.JLabel jLFecha;
+    private javax.swing.JLabel jLMonto;
     private javax.swing.JLabel jLNomUsuario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
