@@ -15,6 +15,8 @@ public class IntGenTicDerivacion extends javax.swing.JDialog {
      * @param especialidad
      */
     public IntGenTicDerivacion(java.awt.Frame parent, boolean modal, String codConsulta, String especialidad) {
+        //en vez de String especialidad que sea tipo Especialidad y ahi tienes el cod del pabellon para buscar y mostrar
+        //al listar las especialidades obtienes un arraylist tipo Especialidad
         super(parent, modal);
         initComponents();
         this.setResizable(false);
@@ -47,6 +49,8 @@ public class IntGenTicDerivacion extends javax.swing.JDialog {
         jLabel7 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLFecha = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLPabellon = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Ticket de Derivacion");
@@ -90,11 +94,11 @@ public class IntGenTicDerivacion extends javax.swing.JDialog {
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setText("Especialidad:");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 90, 30));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 90, 30));
 
         jLEspecialidad.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLEspecialidad.setText("ODONTOLOGIA");
-        jPanel2.add(jLEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 210, 30));
+        jPanel2.add(jLEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 140, 30));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setText("Numero de Consulta:");
@@ -107,6 +111,14 @@ public class IntGenTicDerivacion extends javax.swing.JDialog {
         jLFecha.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLFecha.setText("21/02/2017 17:50:59");
         jPanel2.add(jLFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 60, 140, 30));
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel6.setText("Pabellon:");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, 70, 30));
+
+        jLPabellon.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLPabellon.setText("ALA NORTE");
+        jPanel2.add(jLPabellon, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 140, 120, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -174,10 +186,12 @@ public class IntGenTicDerivacion extends javax.swing.JDialog {
     private javax.swing.JLabel jLCodTicket;
     private javax.swing.JLabel jLEspecialidad;
     private javax.swing.JLabel jLFecha;
+    private javax.swing.JLabel jLPabellon;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
