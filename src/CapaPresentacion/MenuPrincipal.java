@@ -1,6 +1,7 @@
 
 package CapaPresentacion;
 
+import CapaPresentacion.AteTriaje.IntTriaje;
 import CapaPresentacion.GesTicAtencion.IntCajAtencion;
 import CapaPresentacion.Seguridad.IntAdmUsuarios;
 
@@ -95,6 +96,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jBTriaje.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jBTriaje.setText("Triaje");
+        jBTriaje.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBTriajeActionPerformed(evt);
+            }
+        });
         jPanel2.add(jBTriaje);
 
         jBVentanilla.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
@@ -160,6 +166,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         this.dispose();
         new IntCajAtencion(this.us).setVisible(true);
     }//GEN-LAST:event_jBCajaActionPerformed
+
+    private void jBTriajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTriajeActionPerformed
+        this.dispose();
+        new IntTriaje().setVisible(true);
+    }//GEN-LAST:event_jBTriajeActionPerformed
 
 
     public static void main(String args[]) {

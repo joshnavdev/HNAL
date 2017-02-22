@@ -12,11 +12,11 @@ public class Medico {
     private String apellido;
     private String dni;
     private String codEspecialidad;
-    private char sexo;
+    private String sexo;
     private String telefono;
     private String codDireccion;
 
-    public Medico(String codMedico, String nombre, String apellido, String dni, String codEspecialidad, char sexo, String telefono, String codDireccion) {
+    public Medico(String codMedico, String nombre, String apellido, String dni, String codEspecialidad, String sexo, String telefono, String codDireccion) {
         this.codMedico = codMedico;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -27,6 +27,11 @@ public class Medico {
         this.codDireccion = codDireccion;
     }
 
+    @Override
+    public String toString(){
+        return this.nombre + ' ' + this.apellido;
+    }
+    
     public String getCodMedico() {
         return codMedico;
     }
@@ -67,11 +72,11 @@ public class Medico {
         this.codEspecialidad = codEspecialidad;
     }
 
-    public char getSexo() {
+    public String getSexo() {
         return sexo;
     }
 
-    public void setSexo(char sexo) {
+    public void setSexo(String sexo) {
         this.sexo = sexo;
     }
 

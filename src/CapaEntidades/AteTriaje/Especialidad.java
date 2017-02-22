@@ -19,6 +19,15 @@ public class Especialidad {
         this.descripcion = descripcion;
     }
 
+    public Especialidad(String codEspecialidad, String codPabellon, String nombre) {
+        this.codEspecialidad = codEspecialidad;
+        this.codPabellon = codPabellon;
+        this.nombre = nombre;
+        this.descripcion = null;
+    }
+    
+    
+
     public String getCodEspecialidad() {
         return codEspecialidad;
     }

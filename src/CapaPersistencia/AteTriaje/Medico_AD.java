@@ -26,9 +26,10 @@ public class Medico_AD {
         Medico medico;
         
         try {
-            String sql = "EXEC listarMedicoEsp";
-            st = conexion.createStatement();
-            rs = st.executeQuery(sql);
+            String sql = "EXEC listarMedicoEsp ?";
+            ps = conexion.prepareCall(sql);
+            ps.setString(1, codEspecialidad);
+            rs = ps.executeQuery();
             while(rs.next()) {
                 medico = new Medico(
                         rs.getString(1),
@@ -36,7 +37,7 @@ public class Medico_AD {
                         rs.getString(3),
                         rs.getString(4),
                         rs.getString(5),
-                        rs.getString(6).charAt(0),
+                        rs.getString(6),
                         rs.getString(7),
                         rs.getString(8)
                 );

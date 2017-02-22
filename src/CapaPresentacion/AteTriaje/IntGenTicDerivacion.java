@@ -1,6 +1,13 @@
 
 package CapaPresentacion.AteTriaje;
 
+import CapaEntidades.AteTriaje.Especialidad;
+import CapaEntidades.AteTriaje.TicketDerivacion;
+import CapaNegocio.AteTriaje.Pabellon_LN;
+import CapaNegocio.AteTriaje.TicketDerivacion_LN;
+import CapaNegocio.Date_LN;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Joshua
@@ -14,9 +21,7 @@ public class IntGenTicDerivacion extends javax.swing.JDialog {
      * @param codConsulta
      * @param especialidad
      */
-    public IntGenTicDerivacion(java.awt.Frame parent, boolean modal, String codConsulta, String especialidad) {
-        //en vez de String especialidad que sea tipo Especialidad y ahi tienes el cod del pabellon para buscar y mostrar
-        //al listar las especialidades obtienes un arraylist tipo Especialidad
+    public IntGenTicDerivacion(java.awt.Frame parent, boolean modal, String codConsulta, Especialidad especialidad) {
         super(parent, modal);
         initComponents();
         this.setResizable(false);
@@ -24,14 +29,28 @@ public class IntGenTicDerivacion extends javax.swing.JDialog {
         this.iniciarVentana(codConsulta, especialidad);
     }
     
+    //Variables Propias
+    private int flag;
+    
     //Metodos Propios
-    private void iniciarVentana(String codConsulta, String especialidad) {
-        this.jLCodTicket.setText("TD0001");
-        this.jLFecha.setText("21/02/2017 17:59:59");
+    private void iniciarVentana(String codConsulta, Especialidad especialidad) {
+        this.jLCodTicket.setText(new TicketDerivacion_LN().generarCodigo());
+        this.jLFecha.setText(new Date_LN().obtenerFechaHora());
         this.jLCodConsulta.setText(codConsulta);
-        this.jLEspecialidad.setText(especialidad);
+        this.jLEspecialidad.setText(especialidad.getNombre());
+        this.jLPabellon.setText(new Pabellon_LN().buscarNomPabellon(especialidad.getCodPabellon()));
     }
 
+    public int getFlag() {
+        return flag;
+    }
+
+    public void setFlag(int flag) {
+        this.flag = flag;
+    }
+
+    
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -56,10 +75,15 @@ public class IntGenTicDerivacion extends javax.swing.JDialog {
         setTitle("Ticket de Derivacion");
 
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel3.setLayout(new java.awt.GridLayout());
+        jPanel3.setLayout(new java.awt.GridLayout(1, 0));
 
         jBGenerar.setFont(new java.awt.Font("Times New Roman", 1, 21)); // NOI18N
         jBGenerar.setText("Generar");
+        jBGenerar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBGenerarActionPerformed(evt);
+            }
+        });
         jPanel3.add(jBGenerar);
 
         jButton2.setFont(new java.awt.Font("Times New Roman", 1, 21)); // NOI18N
@@ -148,6 +172,14 @@ public class IntGenTicDerivacion extends javax.swing.JDialog {
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jBGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGenerarActionPerformed
+        TicketDerivacion ticket = new TicketDerivacion(this.jLCodTicket.getText(), this.jLCodConsulta.getText());
+        new TicketDerivacion_LN().guardarTicDerivacion(ticket);
+        JOptionPane.showMessageDialog(null, "Ticket de Derivacion generado exitosamente");
+        this.flag = 1;
+        this.dispose();
+    }//GEN-LAST:event_jBGenerarActionPerformed
+
     public static void main(String args[]) {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -167,7 +199,7 @@ public class IntGenTicDerivacion extends javax.swing.JDialog {
         }
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                IntGenTicDerivacion dialog = new IntGenTicDerivacion(new javax.swing.JFrame(), true,"CO001","ODONTOLOGIA");
+                IntGenTicDerivacion dialog = new IntGenTicDerivacion(new javax.swing.JFrame(), true,"CO001",new Especialidad("ES001","PA01","asd"));
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

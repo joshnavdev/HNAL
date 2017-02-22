@@ -24,6 +24,18 @@ public class Consulta {
         this.diagnostico = diagnostico;
     }
 
+    public Consulta(String codConsulta, String codMedico, String sintomas) {
+        this.codConsulta = codConsulta;
+        this.codHisClinico = null;
+        this.codMedico = codMedico;
+        this.codReceta = null;
+        this.fechaEmision = null;
+        this.sintomas = sintomas;
+        this.diagnostico = null;
+    }
+    
+    
+
     public String getCodConsulta() {
         return codConsulta;
     }

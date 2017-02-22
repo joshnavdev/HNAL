@@ -17,6 +17,14 @@ public class TicketDerivacion {
         this.fecha = fecha;
     }
 
+    public TicketDerivacion(String codTicket, String codConsulta) {
+        this.codTicket = codTicket;
+        this.codConsulta = codConsulta;
+        this.fecha = null;
+    }
+    
+    
+
     public String getCodTicket() {
         return codTicket;
     }
