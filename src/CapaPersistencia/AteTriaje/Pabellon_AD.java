@@ -5,6 +5,7 @@ import CapaPersistencia.Conexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
@@ -21,6 +22,18 @@ public class Pabellon_AD {
     public String buscarNomPabellon(String codPabellon) {
         String nombre = null;
         
+        try {
+            String sql = "EXEC buscarNomPabellon ?";
+            ps = conexion.prepareCall(sql);
+            ps.setString(1, codPabellon);
+            rs = ps.executeQuery();
+            if(rs.next())
+                nombre = rs.getString(1);
+            
+        } catch (SQLException e) {
+            System.out.println("Error en buscarNomPabellon");
+            System.out.println(e.getMessage());
+        }
         
         return nombre;
     }
