@@ -139,7 +139,23 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jBIngresar1ActionPerformed
 
     private void jTClaveKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTClaveKeyTyped
-
+        char cod = evt.getKeyChar();
+        if(cod == '\n') {
+            if(this.validarEspacios()) {
+            String usuario = this.jTUsuario.getText();
+            String clave = this.jTClave.getText();
+            String tipo = new Usuario_LN().validarUsuario(usuario, clave);
+            System.out.println(tipo);
+            if(tipo != null) {
+                this.dispose();
+                new MenuPrincipal(tipo,usuario).setVisible(true);
+            } else {
+                JOptionPane.showMessageDialog(null, "Usuario o Clave incorrecta");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Rellene todo los campos");
+        }
+        }
     }//GEN-LAST:event_jTClaveKeyTyped
 
     private void jBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCancelarActionPerformed
