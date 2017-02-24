@@ -3,6 +3,7 @@ package CapaNegocio.AteTriaje;
 
 import CapaEntidades.AteTriaje.Consulta;
 import CapaPersistencia.AteTriaje.Consulta_AD;
+import java.util.ArrayList;
 
 /**
  *
@@ -28,4 +29,32 @@ public class Consulta_LN {
         return 0;
     }
     
+    public ArrayList<Consulta> listarConsultasHc(String codhisClinico) {
+        try {
+            return new Consulta_AD().listarConsultasHc(codhisClinico);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return null;
+    }
+    
+    public int modificarConsultaHC(String codConsulta, String codHisClinico) {
+        try {
+            return new Consulta_AD().modificarConsultaHC(codConsulta, codHisClinico);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        
+        return 0;
+    }
+    
+    public ArrayList<String> obteerEspMedico(String codConsulta) {
+        try {
+            return new Consulta_AD().obteerEspMedico(codConsulta);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        
+        return null;
+    }
 }

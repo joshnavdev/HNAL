@@ -1,14 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package CapaNegocio.AdmDatPaciente;
+
+import CapaEntidades.AdmDatPaciente.TarPaciente;
+import CapaPersistencia.AdmDatPaciente.TarPaciente_AD;
 
 /**
  *
  * @author Joshua
  */
 public class TarPaciente_LN {
-    
+    public TarPaciente genTarPaciente(String codConsulta) {
+        try {
+            return new TarPaciente_AD().genTarPaciente(codConsulta);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        
+        return null;
+    }
 }
