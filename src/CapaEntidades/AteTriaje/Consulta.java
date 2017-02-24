@@ -33,6 +33,14 @@ public class Consulta {
         this.sintomas = sintomas;
         this.diagnostico = null;
     }
+
+    public Consulta(String codConsulta, String fechaEmision, String sintomas, String diagnostico, String codReceta) {
+        this.codConsulta = codConsulta;
+        this.codReceta = codReceta;
+        this.fechaEmision = fechaEmision;
+        this.sintomas = sintomas;
+        this.diagnostico = diagnostico;
+    }
     
     
 

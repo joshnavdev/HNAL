@@ -16,11 +16,12 @@ public class Paciente {
     private String edad;
     private String telefono;
     private String movil;
-    private String codDireccion;
+    private String Direccion;
+    private String codDistrito;
     private String correo;
     private String dni;
 
-    public Paciente(String codPaciente, String nombre, String apellidoP, String apellidoM, String estCivil, String sexo, String fecNacimiento, String edad, String telefono, String movil, String codDireccion, String correo, String dni) {
+    public Paciente(String codPaciente, String nombre, String apellidoP, String apellidoM, String estCivil, String sexo, String fecNacimiento, String edad, String telefono, String movil, String Direccion, String codDistrito, String correo, String dni) {
         this.codPaciente = codPaciente;
         this.nombre = nombre;
         this.apellidoP = apellidoP;
@@ -31,10 +32,29 @@ public class Paciente {
         this.edad = edad;
         this.telefono = telefono;
         this.movil = movil;
-        this.codDireccion = codDireccion;
+        this.Direccion = Direccion;
+        this.codDistrito = codDistrito;
         this.correo = correo;
         this.dni = dni;
     }
+
+    public Paciente(String codPaciente, String nombre, String apellidoP, String apellidoM, String estCivil, String sexo, String fecNacimiento, String edad, String telefono, String movil, String Direccion, String correo, String dni) {
+        this.codPaciente = codPaciente;
+        this.nombre = nombre;
+        this.apellidoP = apellidoP;
+        this.apellidoM = apellidoM;
+        this.estCivil = estCivil;
+        this.sexo = sexo;
+        this.fecNacimiento = fecNacimiento;
+        this.edad = edad;
+        this.telefono = telefono;
+        this.movil = movil;
+        this.Direccion = Direccion;
+        this.correo = correo;
+        this.dni = dni;
+    }
+    
+    
 
     public String getCodPaciente() {
         return codPaciente;
@@ -116,12 +136,20 @@ public class Paciente {
         this.movil = movil;
     }
 
-    public String getCodDireccion() {
-        return codDireccion;
+    public String getDireccion() {
+        return Direccion;
     }
 
-    public void setCodDireccion(String codDireccion) {
-        this.codDireccion = codDireccion;
+    public void setDireccion(String Direccion) {
+        this.Direccion = Direccion;
+    }
+
+    public String getCodDistrito() {
+        return codDistrito;
+    }
+
+    public void setCodDistrito(String codDistrito) {
+        this.codDistrito = codDistrito;
     }
 
     public String getCorreo() {
@@ -139,6 +167,9 @@ public class Paciente {
     public void setDni(String dni) {
         this.dni = dni;
     }
+
+    
+
     
     
     
