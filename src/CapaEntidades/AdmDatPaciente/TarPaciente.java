@@ -18,6 +18,12 @@ public class TarPaciente {
         this.gSanguineo = gSanguineo;
     }
 
+    @Override
+    public String toString() {
+        return "TarPaciente{" + "nombre=" + nombre + ", direccion=" + direccion + ", movil=" + movil + ", gSanguineo=" + gSanguineo + '}';
+    }
+    
+
     public String getNombre() {
         return nombre;
     }

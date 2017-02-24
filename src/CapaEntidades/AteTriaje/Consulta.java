@@ -41,6 +41,11 @@ public class Consulta {
         this.sintomas = sintomas;
         this.diagnostico = diagnostico;
     }
+
+    @Override
+    public String toString() {
+        return "Consulta{" + "codConsulta=" + codConsulta + ", codHisClinico=" + codHisClinico + ", codMedico=" + codMedico + ", codReceta=" + codReceta + ", fechaEmision=" + fechaEmision + ", sintomas=" + sintomas + ", diagnostico=" + diagnostico + '}';
+    }
     
     
 

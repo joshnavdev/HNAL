@@ -44,13 +44,13 @@ public class HisClinico_AD {
             String sql = "EXEC guardarHisClinico ?,?,?,?,?,?,?,?";
             ps = conexion.prepareStatement(sql);
             ps.setString(1, hisClinico.getEstado());
-            ps.setString(1, hisClinico.getgSanguineo());
-            ps.setString(1, hisClinico.getAntPersonales());
-            ps.setString(1, hisClinico.getAntFamiliares());
-            ps.setString(1, hisClinico.getAlergias());
-            ps.setString(1, hisClinico.getVacunas());
-            ps.setString(1, hisClinico.getIntQuirurgicas());
-            ps.setString(1, hisClinico.getEnfCronicas());
+            ps.setString(2, hisClinico.getgSanguineo());
+            ps.setString(3, hisClinico.getAntPersonales());
+            ps.setString(4, hisClinico.getAntFamiliares());
+            ps.setString(5, hisClinico.getAlergias());
+            ps.setString(6, hisClinico.getVacunas());
+            ps.setString(7, hisClinico.getIntQuirurgicas());
+            ps.setString(8, hisClinico.getEnfCronicas());
             resp = ps.executeUpdate();
             
         } catch (SQLException e) {

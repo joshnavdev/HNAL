@@ -108,7 +108,7 @@ public class Consulta_AD {
             ps.setString(1, codConsulta);
             rs = ps.executeQuery();
             if(rs.next()) {
-                nombre = rs.getString(1) + rs.getString(2);
+                nombre = rs.getString(1) + " " +rs.getString(2);
                 especialidad = rs.getString(3);
                 espMedicos.add(nombre);
                 espMedicos.add(especialidad);

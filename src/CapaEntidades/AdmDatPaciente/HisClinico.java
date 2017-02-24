@@ -30,6 +30,24 @@ public class HisClinico {
         this.antFamiliares = antFamiliares;
     }
 
+    public HisClinico(String estado, String gSanguineo, String antPersonales, String antFamiliares, String alergias, String vacunas, String intQuirurgicas, String enfCronicas) {
+        this.estado = estado;
+        this.gSanguineo = gSanguineo;
+        this.antPersonales = antPersonales;
+        this.alergias = alergias;
+        this.vacunas = vacunas;
+        this.intQuirurgicas = intQuirurgicas;
+        this.enfCronicas = enfCronicas;
+        this.antFamiliares = antFamiliares;
+    }
+
+    @Override
+    public String toString() {
+        return "HisClinico{" + "codHisClinico=" + codHisClinico + ", estado=" + estado + ", gSanguineo=" + gSanguineo + ", antPersonales=" + antPersonales + ", alergias=" + alergias + ", vacunas=" + vacunas + ", intQuirurgicas=" + intQuirurgicas + ", enfCronicas=" + enfCronicas + ", codPaciente=" + codPaciente + ", antFamiliares=" + antFamiliares + '}';
+    }
+    
+    
+
     public String getCodHisClinico() {
         return codHisClinico;
     }

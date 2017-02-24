@@ -1,7 +1,10 @@
 
 package CapaPresentacion.AdmDatPaciente;
 
+import CapaEntidades.AdmDatPaciente.TarPaciente;
+import CapaNegocio.AdmDatPaciente.TarPaciente_LN;
 import CapaNegocio.Date_LN;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -13,13 +16,24 @@ public class IntGenTarPaciente extends javax.swing.JDialog {
      * Creates new form IntGenTarPaciente
      * @param parent
      * @param modal
+     * @param medico
+     * @param especialidad
      */
-    public IntGenTarPaciente(java.awt.Frame parent, boolean modal) {
+    public IntGenTarPaciente(java.awt.Frame parent, boolean modal,String medico, String especialidad,String codConsulta) {
         super(parent, modal);
         initComponents();
         this.setResizable(false);
         this.setLocationRelativeTo(null);
+        this.jLMedico.setText(medico);
+        this.jLEspecialidad.setText(especialidad);
         this.jLDate.setText(new Date_LN().obtenerFecha());
+        
+        TarPaciente tarjeta = new TarPaciente_LN().genTarPaciente(codConsulta);
+        this.jLPaciente.setText(tarjeta.getNombre().toUpperCase());
+        this.jLDireccion.setText(tarjeta.getDireccion().toUpperCase());
+        this.jLMovil.setText(tarjeta.getMovil());
+        this.jLSangre.setText(tarjeta.getgSanguineo().toUpperCase());
+        System.out.println(tarjeta);
     }
 
     @SuppressWarnings("unchecked")
@@ -29,20 +43,20 @@ public class IntGenTarPaciente extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        jLPaciente = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jLDireccion = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        jLMovil = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
+        jLMedico = new javax.swing.JLabel();
+        jLEspecialidad = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
+        jLSangre = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLDate = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -63,30 +77,30 @@ public class IntGenTarPaciente extends javax.swing.JDialog {
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel2.setText("JOSHUA NICOLAS NAVARRO RUIZ");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, 360, 30));
+        jLPaciente.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLPaciente.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLPaciente.setText("JOSHUA NICOLAS NAVARRO RUIZ");
+        jPanel2.add(jLPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, 360, 30));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel3.setText("Paciente:");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 70, 30));
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel4.setText("JR. ALFONSO UGARTE #115, COMAS");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, 360, 30));
+        jLDireccion.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLDireccion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLDireccion.setText("JR. ALFONSO UGARTE #115, COMAS");
+        jPanel2.add(jLDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, 360, 30));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel5.setText("Direccion:");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, 70, 30));
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel6.setText("962229088");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 220, 30));
+        jLMovil.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLMovil.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLMovil.setText("962229088");
+        jPanel2.add(jLMovil, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 220, 30));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -108,15 +122,15 @@ public class IntGenTarPaciente extends javax.swing.JDialog {
         jLabel10.setText("Medico:");
         jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 70, 30));
 
-        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel11.setText("GREGORIO NICOLAS NAVARRO LEON");
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 360, 30));
+        jLMedico.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLMedico.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLMedico.setText("GREGORIO NICOLAS NAVARRO LEON");
+        jPanel2.add(jLMedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 360, 30));
 
-        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel12.setText("OFTALMOLOGIA");
-        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, 320, 30));
+        jLEspecialidad.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLEspecialidad.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLEspecialidad.setText("OFTALMOLOGIA");
+        jPanel2.add(jLEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, 320, 30));
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -128,10 +142,10 @@ public class IntGenTarPaciente extends javax.swing.JDialog {
         jLabel14.setText("Gr. Sanguineo:");
         jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, 100, 30));
 
-        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel15.setText("O+");
-        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 140, 80, 30));
+        jLSangre.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLSangre.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLSangre.setText("O+");
+        jPanel2.add(jLSangre, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 140, 80, 30));
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -144,10 +158,15 @@ public class IntGenTarPaciente extends javax.swing.JDialog {
         jPanel2.add(jLDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, 120, 30));
 
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel3.setLayout(new java.awt.GridLayout());
+        jPanel3.setLayout(new java.awt.GridLayout(1, 0));
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 21)); // NOI18N
         jButton1.setText("Imprimir");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel3.add(jButton1);
 
         jButton2.setFont(new java.awt.Font("Times New Roman", 1, 21)); // NOI18N
@@ -201,6 +220,12 @@ public class IntGenTarPaciente extends javax.swing.JDialog {
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Tarjeta de Paciente impresa satisfactoriamente");
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     public static void main(String args[]) {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -220,7 +245,7 @@ public class IntGenTarPaciente extends javax.swing.JDialog {
         }
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                IntGenTarPaciente dialog = new IntGenTarPaciente(new javax.swing.JFrame(), true);
+                IntGenTarPaciente dialog = new IntGenTarPaciente(new javax.swing.JFrame(), true,"ASD ASD ","CACALOGIA","CO0031");
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -236,20 +261,20 @@ public class IntGenTarPaciente extends javax.swing.JDialog {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLDate;
+    private javax.swing.JLabel jLDireccion;
+    private javax.swing.JLabel jLEspecialidad;
+    private javax.swing.JLabel jLMedico;
+    private javax.swing.JLabel jLMovil;
+    private javax.swing.JLabel jLPaciente;
+    private javax.swing.JLabel jLSangre;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;

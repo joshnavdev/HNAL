@@ -1,7 +1,12 @@
 
 package CapaPresentacion.AdmDatPaciente;
 
+import CapaEntidades.AdmDatPaciente.*;
+import CapaNegocio.AdmDatPaciente.*;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.Enumeration;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,9 +22,102 @@ public class IntVenAdmision extends javax.swing.JFrame {
         this.setResizable(false);
         this.setLocationRelativeTo(null);
         this.modificarEstado("Inicio");
+        this.ponerDepartamentos();
+
+        this.iniciarVentana();
     }
-    
+    //Variables Propias
+    ArrayList<Geografico> departamentos;
+    ArrayList<Geografico> provincias;
+    ArrayList<Geografico> distritos;
+    int flag1 = 0;
+    int flag2 = 0;
+    int flag3 = 0;
     //Metodos Propios
+    private String toDate(String date) {
+        String fecha = "";
+        String[] splitFecha = date.split(" ");
+        //1 mes,2 dia,5 años
+        fecha += splitFecha[5]+"-";
+        switch(splitFecha[1]) {
+            case "Jan": fecha += "01-";break;
+            case "Feb": fecha += "02-";break;
+            case "Mar": fecha += "03-";break;
+            case "Apr": fecha += "04-";break;
+            case "May": fecha += "05-";break;
+            case "Jun": fecha += "06-";break;
+            case "Jul": fecha += "07-";break;
+            case "Aug": fecha += "08-";break;
+            case "Sep": fecha += "09-";break;
+            case "Oct": fecha += "10-";break;
+            case "Nov": fecha += "11-";break;
+            case "Dec": fecha += "12-";break;
+        }
+        fecha += splitFecha[2];
+        return fecha;
+    }
+    private void iniciarVentana() {
+        flag1 = 0;
+        this.ponerDepartamentos();
+        flag2 = 0;
+        this.ponerProvincias(this.obtenerCodigo(departamentos, this.jCDepartamento.getSelectedItem().toString()));
+        this.ponerDistritos(this.obtenerCodigo(provincias, this.jCProvincia.getSelectedItem().toString()));
+        flag1 = 1;
+        flag2 = 1;
+
+        this.jLCodigo.setText(new HisClinico_LN().generarCodigo());
+        this.jTAM.setText("");
+        this.jTAP.setText("");
+        this.jTNombre.setText("");
+        this.jTCorre.setText("");
+        this.jTDireccion.setText("");
+        this.jTMovil.setText("");
+        this.jSEdad.setText("");
+        this.jTTelefono.setText("");
+        this.jTdni.setText("");
+        this.jTGrpSanguineo1.setText("");
+        
+        this.jAAlergias.setText("");
+        this.jACronicas.setText("");
+        this.jAFamiliares.setText("");
+        this.jAInter.setText("");
+        this.jAPersonales.setText("");
+        this.jAVacunas.setText("");
+        
+        this.jDate.setText("");
+        
+    }
+    private boolean validarCampos() {
+        boolean valido = true;
+        
+        return valido;
+    }
+    private String obtenerCodigo(ArrayList<Geografico> geografico, String nombre) {
+        String codigo = null;
+        for(Geografico temp : geografico) {
+            if(temp.getNombre().equals(nombre))
+                codigo = temp.getCodigo();
+        }
+        return codigo;
+    }
+    private void ponerDepartamentos() {
+        departamentos = new Geografico_LN().listarDepartamento();
+        this.jCDepartamento.removeAllItems(); //primera
+        for(Geografico departamento : departamentos)
+            this.jCDepartamento.addItem(departamento.getNombre());
+    }
+    private void ponerProvincias(String codDepartamento) {
+        provincias = new Geografico_LN().listarProvinciaDep(codDepartamento);
+        this.jCProvincia.removeAllItems();
+        for(Geografico provincia : provincias)
+            this.jCProvincia.addItem(provincia.getNombre());
+    }
+    private void ponerDistritos(String codProvincia) {
+        distritos = new Geografico_LN().listaDistritoPro(codProvincia);
+        this.jCDistrito.removeAllItems();
+        for(Geografico distrito : distritos)
+            this.jCDistrito.addItem(distrito.getNombre());
+    }
     private String getRBSelected(javax.swing.ButtonGroup bg) {
         String text = null;
         Enumeration<javax.swing.AbstractButton> allRadioButton = bg.getElements();
@@ -46,7 +144,7 @@ public class IntVenAdmision extends javax.swing.JFrame {
         this.jTNombre.setEditable(b);
         this.jTCorre.setEditable(b);
         this.jTDireccion.setEditable(b);
-        this.jTGrpSanguineo.setEditable(b);
+        this.jTGrpSanguineo1.setEditable(b);
         this.jTMovil.setEditable(b);
         this.jTTelefono.setEditable(b);
         this.jTdni.setEditable(b);
@@ -59,7 +157,7 @@ public class IntVenAdmision extends javax.swing.JFrame {
         this.jAInter.setEditable(b);
         this.jAVacunas.setEditable(b);
         
-        this.jDate.setEnabled(b);
+        this.jbDate.setEnabled(b);
        
         this.jSEdad.setEnabled(b);
     }
@@ -93,6 +191,32 @@ public class IntVenAdmision extends javax.swing.JFrame {
                 break;
         }
     }
+    private boolean isNumeric(String cadena){
+	try {
+		Integer.parseInt(cadena);
+		return true;
+	} catch (NumberFormatException nfe){
+		return false;
+	}
+    }
+    private int buscadIdx(ArrayList<Geografico> geos,String nombre) {
+        int resp = -1;
+        for (int i = 0; i < geos.size(); i++) {
+            if(geos.get(i).getNombre().equals(nombre))
+                resp = i;
+        }
+        return resp;
+    }
+    private void selecionarEstCivil(String estadoC) {
+        int idx = 0;
+        switch(estadoC) {
+            case "Soltero/a": idx = 0;break;
+            case "Casado/a": idx = 1;break;
+            case "Divorciado/a": idx = 2;break;
+            case "Viudo/a": idx = 3;break;
+        }
+        this.jCEstCivil.setSelectedIndex(idx);
+    }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -124,8 +248,7 @@ public class IntVenAdmision extends javax.swing.JFrame {
         jRHombre = new javax.swing.JRadioButton();
         jRMujer = new javax.swing.JRadioButton();
         jCDepartamento = new javax.swing.JComboBox<>();
-        jDate = new com.toedter.calendar.JDateChooser();
-        jSEdad = new javax.swing.JSpinner();
+        jbDate = new com.toedter.calendar.JDateChooser();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jTdni = new javax.swing.JTextField();
@@ -136,7 +259,7 @@ public class IntVenAdmision extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jTDireccion = new javax.swing.JTextField();
         jTCorre = new javax.swing.JTextField();
-        jTGrpSanguineo = new javax.swing.JTextField();
+        jSEdad = new javax.swing.JTextField();
         jCEstCivil = new javax.swing.JComboBox<>();
         jTabClinico = new javax.swing.JTabbedPane();
         jPanel4 = new javax.swing.JPanel();
@@ -164,6 +287,8 @@ public class IntVenAdmision extends javax.swing.JFrame {
         jCDistrito = new javax.swing.JComboBox<>();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
+        jTGrpSanguineo1 = new javax.swing.JTextField();
+        jDate = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -276,11 +401,48 @@ public class IntVenAdmision extends javax.swing.JFrame {
         jPanel3.add(jRMujer, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, -1, 30));
 
         jCDepartamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "LIMA", "MADRE DE DIOS" }));
+        jCDepartamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCDepartamentoActionPerformed(evt);
+            }
+        });
         jPanel3.add(jCDepartamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 150, 30));
-        jPanel3.add(jDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 110, 150, 30));
 
-        jSEdad.setModel(new javax.swing.SpinnerNumberModel(0, 0, 99, 1));
-        jPanel3.add(jSEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 110, 50, 30));
+        jbDate.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                jbDateAncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        jbDate.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jbDateMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jbDateMousePressed(evt);
+            }
+        });
+        jbDate.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                jbDateInputMethodTextChanged(evt);
+            }
+        });
+        jbDate.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jbDatePropertyChange(evt);
+            }
+        });
+        jbDate.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jbDateKeyPressed(evt);
+            }
+        });
+        jPanel3.add(jbDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 110, 43, 30));
 
         jLabel8.setText("Fecha de Nacimiento:");
         jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 110, 140, 30));
@@ -317,14 +479,20 @@ public class IntVenAdmision extends javax.swing.JFrame {
         jTCorre.setText("joshua.navarro35@gmail.com");
         jPanel3.add(jTCorre, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, 220, 30));
 
-        jTGrpSanguineo.setText("O+");
-        jPanel3.add(jTGrpSanguineo, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 260, 150, 30));
+        jSEdad.setText("21");
+        jPanel3.add(jSEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 110, 50, 30));
 
-        jCEstCivil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Soltero/a", "Casado/a", "Divorciado/a", "Viudo/a", " " }));
+        jCEstCivil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Soltero/a", "Casado/a", "Divorciado/a", "Viudo/a" }));
+        jCEstCivil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCEstCivilActionPerformed(evt);
+            }
+        });
         jPanel3.add(jCEstCivil, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, 30));
 
         jAPersonales.setColumns(20);
         jAPersonales.setRows(5);
+        jAPersonales.setText("asdasdasd");
         jScrollPane1.setViewportView(jAPersonales);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -359,6 +527,7 @@ public class IntVenAdmision extends javax.swing.JFrame {
 
         jAAlergias.setColumns(20);
         jAAlergias.setRows(5);
+        jAAlergias.setText("asdasd");
         jScrollPane3.setViewportView(jAAlergias);
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
@@ -428,6 +597,11 @@ public class IntVenAdmision extends javax.swing.JFrame {
         jPanel3.add(jTabClinico, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 770, 130));
 
         jCProvincia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "LIMA", "BARRANCA" }));
+        jCProvincia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCProvinciaActionPerformed(evt);
+            }
+        });
         jPanel3.add(jCProvincia, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 160, 150, 30));
 
         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -452,6 +626,12 @@ public class IntVenAdmision extends javax.swing.JFrame {
         jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel23.setText("Correo:");
         jPanel3.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 70, 30));
+
+        jTGrpSanguineo1.setText("O+");
+        jPanel3.add(jTGrpSanguineo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 260, 150, 30));
+
+        jDate.setText("17/02/21");
+        jPanel3.add(jDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 110, 100, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -491,21 +671,145 @@ public class IntVenAdmision extends javax.swing.JFrame {
     }//GEN-LAST:event_jTMovilActionPerformed
 
     private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarActionPerformed
-        this.modificarEstado("Buscar");
+        String respuesta = JOptionPane.showInputDialog(null, "Ingrese DNI del paciente:");
+        if(this.isNumeric(respuesta) && !"".equals(respuesta) && respuesta.length()==8) {
+            Paciente paciente = new Paciente_LN().buscarPacienteDNI(respuesta);
+            if(paciente != null) {
+                HisClinico hisClinico = new HisClinico_LN().buscarHisClinicoPac(paciente.getCodPaciente());
+                Direccion direccion = new Direccion_LN().buscarDireccion(paciente.getDireccion());
+                flag2=0;
+                this.ponerProvincias(this.obtenerCodigo(departamentos, direccion.getDepartamento()));
+                this.ponerDistritos(this.obtenerCodigo(provincias, direccion.getProvincia()));
+                flag2=1;
+                this.jCDepartamento.setSelectedIndex(this.buscadIdx(departamentos, direccion.getDepartamento()));
+                this.jCProvincia.setSelectedIndex(this.buscadIdx(provincias, direccion.getProvincia()));
+                this.jCDistrito.setSelectedIndex(this.buscadIdx(distritos, direccion.getDistrito()));
+                this.jLCodigo.setText(hisClinico.getCodHisClinico());
+                if(hisClinico.getEstado().equals("1"))
+                    this.jRAlta.setSelected(true);
+                else
+                    this.jRBaja.setSelected(true);
+                this.jTNombre.setText(paciente.getNombre());
+                this.jTAP.setText(paciente.getApellidoP());
+                this.jTAM.setText(paciente.getApellidoM());
+                this.selecionarEstCivil(paciente.getEstCivil());
+                if(hisClinico.getEstado().equals("H"))
+                    this.jRHombre.setSelected(true);
+                else
+                    this.jRMujer.setSelected(true);
+                this.jSEdad.setText(paciente.getEdad());
+                this.jTDireccion.setText(direccion.getDireccion());
+                this.jTCorre.setText(paciente.getCorreo());
+                this.jTdni.setText(paciente.getDni());
+                this.jTTelefono.setText(paciente.getTelefono());
+                this.jTMovil.setText(paciente.getMovil());
+                this.jTGrpSanguineo1.setText(hisClinico.getgSanguineo());
+                this.jAPersonales.setText(hisClinico.getAntPersonales());
+                this.jAFamiliares.setText(hisClinico.getAntFamiliares());
+                this.jAAlergias.setText(hisClinico.getAlergias());
+                this.jAVacunas.setText(hisClinico.getVacunas());
+                this.jAInter.setText(hisClinico.getIntQuirurgicas());
+                this.jACronicas.setText(hisClinico.getEnfCronicas());
+                this.jDate.setText(paciente.getFecNacimiento());
+                this.modificarEstado("Buscar");
+            } else {
+                JOptionPane.showMessageDialog(null, "No se encontro el historial clinico del paciente");
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(null ,"Ingrese un DNI valido");
+        }
     }//GEN-LAST:event_jBBuscarActionPerformed
 
     private void jBNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNuevoActionPerformed
+        this.iniciarVentana();
         this.modificarEstado("Nuevo");
     }//GEN-LAST:event_jBNuevoActionPerformed
 
     private void jBGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarActionPerformed
         this.modificarEstado("Guardar");
+        Paciente paciente = new Paciente(
+                this.jTNombre.getText(),
+                this.jTAP.getText(),
+                this.jTAM.getText(),
+                this.jCEstCivil.getSelectedItem().toString(),
+                this.getRBSelected(this.bGSexo).equals("Hombre") ? "H":"M",
+                this.jDate.getText(),
+                this.jSEdad.getText(),
+                this.jTTelefono.getText(),
+                this.jTMovil.getText(),
+                this.jTDireccion.getText(),
+                this.obtenerCodigo(this.distritos, this.jCDistrito.getSelectedItem().toString()),
+                this.jTCorre.getText(),
+                this.jTdni.getText()
+        );
+        System.out.println(this.toDate(this.jbDate.getDate().toString()));
+        HisClinico clinico = new HisClinico(
+                this.getRBSelected(this.bGEstado).equals("Alta") ? "1" : "0",
+                this.jTGrpSanguineo1.getText(),
+                this.jAPersonales.getText(),
+                this.jAFamiliares.getText(),
+                this.jAAlergias.getText(),
+                this.jAVacunas.getText(),
+                this.jAInter.getText(),
+                this.jACronicas.getText()
+        );
+        new Paciente_LN().guardarPaciente(paciente);
+        new HisClinico_LN().guardarHisClinico(clinico);
+        
     }//GEN-LAST:event_jBGuardarActionPerformed
 
     private void jBVerConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVerConsultasActionPerformed
-        IntAdmConsulta dialog = new IntAdmConsulta(new javax.swing.JFrame(), true);
+        String nombre = this.jTNombre.getText().toUpperCase() + this.jTAP.getText().toUpperCase() + this.jTAM.getText().toUpperCase();
+        IntAdmConsulta dialog = new IntAdmConsulta(new javax.swing.JFrame(), true,this.jLCodigo.getText(),nombre);
         dialog.setVisible(true);
     }//GEN-LAST:event_jBVerConsultasActionPerformed
+
+    private void jCDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCDepartamentoActionPerformed
+        if(flag1 == 1) {
+            flag2 = 0;
+            this.ponerProvincias(this.obtenerCodigo(departamentos, this.jCDepartamento.getSelectedItem().toString()));
+            this.ponerDistritos(this.obtenerCodigo(provincias, this.jCProvincia.getSelectedItem().toString()));
+            flag2 = 1;
+        }   
+            
+
+    }//GEN-LAST:event_jCDepartamentoActionPerformed
+
+    private void jCProvinciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCProvinciaActionPerformed
+        if(flag2 == 1)
+            this.ponerDistritos(this.obtenerCodigo(provincias, this.jCProvincia.getSelectedItem().toString()));
+    }//GEN-LAST:event_jCProvinciaActionPerformed
+
+    private void jCEstCivilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCEstCivilActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCEstCivilActionPerformed
+
+    private void jbDateKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jbDateKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbDateKeyPressed
+
+    private void jbDateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbDateMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbDateMouseClicked
+
+    private void jbDateMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbDateMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbDateMousePressed
+
+    private void jbDateAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jbDateAncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbDateAncestorAdded
+
+    private void jbDateInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_jbDateInputMethodTextChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbDateInputMethodTextChanged
+
+    private void jbDatePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jbDatePropertyChange
+        if(flag3 == 1)
+            this.jDate.setText(toDate(this.jbDate.getDate().toString()));
+        flag3=1;
+    }//GEN-LAST:event_jbDatePropertyChange
 
     public static void main(String args[]) {
         try {
@@ -549,7 +853,7 @@ public class IntVenAdmision extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jCDistrito;
     private javax.swing.JComboBox<String> jCEstCivil;
     private javax.swing.JComboBox<String> jCProvincia;
-    private com.toedter.calendar.JDateChooser jDate;
+    private javax.swing.JTextField jDate;
     private javax.swing.JLabel jLBorrar1;
     private javax.swing.JLabel jLBorrar2;
     private javax.swing.JLabel jLCodigo;
@@ -581,7 +885,7 @@ public class IntVenAdmision extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRBaja;
     private javax.swing.JRadioButton jRHombre;
     private javax.swing.JRadioButton jRMujer;
-    private javax.swing.JSpinner jSEdad;
+    private javax.swing.JTextField jSEdad;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -592,11 +896,12 @@ public class IntVenAdmision extends javax.swing.JFrame {
     private javax.swing.JTextField jTAP;
     private javax.swing.JTextField jTCorre;
     private javax.swing.JTextField jTDireccion;
-    private javax.swing.JTextField jTGrpSanguineo;
+    private javax.swing.JTextField jTGrpSanguineo1;
     private javax.swing.JTextField jTMovil;
     private javax.swing.JTextField jTNombre;
     private javax.swing.JTextField jTTelefono;
     private javax.swing.JTabbedPane jTabClinico;
     private javax.swing.JTextField jTdni;
+    private com.toedter.calendar.JDateChooser jbDate;
     // End of variables declaration//GEN-END:variables
 }

@@ -21,6 +21,9 @@ public class Paciente {
     private String correo;
     private String dni;
 
+    public Paciente() {
+    }
+
     public Paciente(String codPaciente, String nombre, String apellidoP, String apellidoM, String estCivil, String sexo, String fecNacimiento, String edad, String telefono, String movil, String Direccion, String codDistrito, String correo, String dni) {
         this.codPaciente = codPaciente;
         this.nombre = nombre;
@@ -38,8 +41,7 @@ public class Paciente {
         this.dni = dni;
     }
 
-    public Paciente(String codPaciente, String nombre, String apellidoP, String apellidoM, String estCivil, String sexo, String fecNacimiento, String edad, String telefono, String movil, String Direccion, String correo, String dni) {
-        this.codPaciente = codPaciente;
+    public Paciente(String nombre, String apellidoP, String apellidoM, String estCivil, String sexo, String fecNacimiento, String edad, String telefono, String movil, String Direccion, String codDistrito, String correo, String dni) {
         this.nombre = nombre;
         this.apellidoP = apellidoP;
         this.apellidoM = apellidoM;
@@ -50,9 +52,18 @@ public class Paciente {
         this.telefono = telefono;
         this.movil = movil;
         this.Direccion = Direccion;
+        this.codDistrito = codDistrito;
         this.correo = correo;
         this.dni = dni;
     }
+
+    
+
+    @Override
+    public String toString() {
+        return "Paciente{" + "codPaciente=" + codPaciente + ", nombre=" + nombre + ", apellidoP=" + apellidoP + ", apellidoM=" + apellidoM + ", estCivil=" + estCivil + ", sexo=" + sexo + ", fecNacimiento=" + fecNacimiento + ", edad=" + edad + ", telefono=" + telefono + ", movil=" + movil + ", Direccion=" + Direccion + ", codDistrito=" + codDistrito + ", correo=" + correo + ", dni=" + dni + '}';
+    }
+    
     
     
 

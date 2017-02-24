@@ -1,6 +1,7 @@
 
 package CapaPresentacion;
 
+import CapaPresentacion.AdmDatPaciente.IntVenAdmision;
 import CapaPresentacion.AteTriaje.IntTriaje;
 import CapaPresentacion.GesTicAtencion.IntCajAtencion;
 import CapaPresentacion.Seguridad.IntAdmUsuarios;
@@ -36,7 +37,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
         this.jBAdministrar.setEnabled(false);
         switch(tipo){
             case "Administrador": 
+                this.jBCaja.setEnabled(true);
+                this.jBTriaje.setEnabled(true);
+                this.jBVentanilla.setEnabled(true);
+                this.jBConsultorio.setEnabled(true);
                 this.jBAdministrar.setEnabled(true);
+                
                 break;
             case "Medico": 
                 this.jBTriaje.setEnabled(true);
@@ -105,6 +111,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jBVentanilla.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jBVentanilla.setText("Ventanilla de Admision");
+        jBVentanilla.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBVentanillaActionPerformed(evt);
+            }
+        });
         jPanel2.add(jBVentanilla);
 
         jBConsultorio.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
@@ -171,6 +182,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         this.dispose();
         new IntTriaje().setVisible(true);
     }//GEN-LAST:event_jBTriajeActionPerformed
+
+    private void jBVentanillaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVentanillaActionPerformed
+        this.dispose();
+        new IntVenAdmision().setVisible(true);
+    }//GEN-LAST:event_jBVentanillaActionPerformed
 
 
     public static void main(String args[]) {

@@ -57,21 +57,22 @@ public class Paciente_AD {
             ps.setString(1, dni);
             rs = ps.executeQuery();
             if(rs.next()) {
-                paciente = new Paciente(
-                        rs.getString(1),
-                        rs.getString(2),
-                        rs.getString(3),
-                        rs.getString(4),
-                        rs.getString(5),
-                        rs.getString(6),
-                        rs.getString(7),
-                        rs.getString(8),
-                        rs.getString(9),
-                        rs.getString(10),
-                        rs.getString(11),
-                        rs.getString(12),
-                        rs.getString(13)
-                );
+                paciente = new Paciente();
+                paciente.setCodPaciente(rs.getString(1));
+                paciente.setNombre(rs.getString(2));
+                paciente.setApellidoP(rs.getString(3));
+                paciente.setApellidoM(rs.getString(4));
+                paciente.setEstCivil(rs.getString(5));
+                paciente.setSexo(rs.getString(6));
+                paciente.setFecNacimiento(rs.getString(7));
+                paciente.setEdad(rs.getString(8));
+                paciente.setTelefono(rs.getString(9));
+                paciente.setMovil(rs.getString(10));
+                paciente.setDireccion(rs.getString(11));
+                paciente.setCorreo(rs.getString(12));
+                paciente.setDni(rs.getString(13));
+                       
+                
             }
         } catch (SQLException e) {
             System.out.println("Error buscarPacienteDNI");
